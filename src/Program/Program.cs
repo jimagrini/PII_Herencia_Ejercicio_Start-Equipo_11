@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections;
+using user;
+using driver;
+using vehicle;
+using passenger;
+using rate;
+using socialmedia;
 
 namespace PII_Herencia
 {
@@ -7,7 +13,25 @@ namespace PII_Herencia
     {
         static void Main(string[] args)
         {
+            Vehicle driversCar = new Vehicle("Chevrolet","Onix","SBU 9331", 2020, "Gris");
+
+            User passenger = new Passenger("Christian","Almeida", "1234567");
+
+            User driver = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 3,"Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
+
+            UcuRideShare rideShare = new UcuRideShare();
+
+            rideShare.Add(driver);
+            rideShare.Add(passenger);
+
             /*
+            Rate drivertopassenger = new Rate(passenger,4,"estudiante amable");
+
+            Rate passengerToDriver = new Rate(driver,5,"buen conductor");
+
+            Console.WriteLine(driver.Rating);
+            Console.WriteLine(passenger.Rating);
+
             En éste método deberas mostrar un ejemplo de funcionamiento de tu programa an pseudocódigo. A continuación te 
             planteamos un ejemplo de como hacerlo. Esto no significa que te limites a hacer solamente esto, debes pensar 
             en grande!
