@@ -16,11 +16,10 @@ public class UcuRideShare
         this.rideStatus="Not started";
         this.Conductor= null;
         this.Seats=0;
-        
     }
 
     public string rideStatus {get; set;}
-    public void startRide()
+    public void StartRide()
     {
         if(this.Conductor==null)
         {
@@ -28,7 +27,7 @@ public class UcuRideShare
         }
         else
         {
-            Console.WriteLine("Trip has been started");
+            Console.WriteLine("A trip was successfully created");
             this.rideStatus="On course";
         }
     }
@@ -37,20 +36,27 @@ public class UcuRideShare
 
     public void Add(User person)
     {
-        if(rideStatus=="On course")
+        if(this.rideStatus.Equals("On course"))
         {
-            Console.WriteLine("Sorry, this trips has already begun");
+            Console.WriteLine("Error: this trips has already begun.");
         }
         else
         {
             if(person.userStatus=="Passenger" && this.Conductor==null)
             {
-                Console.WriteLine("No driver has started a ride yet, you will be notified when a ride is created");
+                Console.WriteLine("No driver has started a ride yet, you will be notified when a trip is available.");
             }
             if(person.userStatus=="Driver" && this.Conductor==null)
             {
                 this.Conductor=person;
-                this.Seats=person.Capacity;
+                this.Seats= 1;
+                this.Trip.Add(person);
+                Console.WriteLine($"{person.Name} {person.Surname} has created a trip!\nRating: {person.Rating}\nSeats available: {person.Capacity}\nCar data: \n{person.Vehicle.Brand} {person.Vehicle.Model}\nPlate: {person.Vehicle.Plate}\nColor: {person.Vehicle.Color} ");
+            }
+            if(person.userStatus=="Pool Driver" && this.Conductor==null)
+            {
+                this.Conductor=person;
+                this.Seats= Capacity;
                 this.Trip.Add(person);
                 Console.WriteLine($"{person.Name} {person.Surname} has created a trip!\nRating: {person.Rating}\nSeats available: {person.Capacity}\nCar data: \n{person.Vehicle.Brand} {person.Vehicle.Model}\nPlate: {person.Vehicle.Plate}\nColor: {person.Vehicle.Color} ");
             } 
