@@ -57,7 +57,6 @@ public  abstract class Driver: User
 
     private string surname;
     private string name;
-    public string Identifier {get; set;}
 
     public string Name
     {
