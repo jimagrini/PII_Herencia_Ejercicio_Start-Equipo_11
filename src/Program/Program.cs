@@ -15,8 +15,10 @@ namespace Program
             Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 3,"Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
 
             izquierdo.NewDriver();
+            izquierdo.Available();
 
             UcuRide.MyDriver(keke);
+        
 
             //UcuRideShare rideShare = new UcuRideShare();
 
