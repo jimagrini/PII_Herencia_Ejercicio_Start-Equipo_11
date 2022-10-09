@@ -1,21 +1,18 @@
 using System;
 using System.Collections.Generic;
-using rate;
-using vehicle;
-namespace user;
+
+namespace Library;
 public abstract class User
 {
     protected User(string name, string surname, string id)
     {
-        this.Name = name;
-        this.userStatus=null;        
+        this.Name = name;     
         this.Surname= surname;
         this.Id= id;
         this.Rating=0;
         this.Reviews= new List<Rate>();
     }
 
-    public abstract string userStatus {get; set;}
     public List<Rate> Reviews {get; set;}
     private string name;
     private string surname;

@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
-using user;
-using rate;
-namespace passenger;
+
+namespace Library;
 public  class Passenger : User
 {
     public Passenger(string name, string surname, string id): base(name, surname, id)
     {
-        this.userStatus="Passenger";
+        
     }
-
-    public override string userStatus {get; set;}
-
+    /*public static void MePassenger()
+    {
+        ///  Implementa el metodo estatico de UcuRide el cual busca choferes con asientos disponibles, 
+        /// y de encontrarlos crea una instancia de dicha clase, a la cual le asigna el chofer encontrado y el pasajero.
+        UcuRide.MyDriver(this);
+    }*/
 }

@@ -1,20 +1,13 @@
 using System;
 using System.Collections.Generic;
-using user;
-using vehicle;
-using rate;
-namespace driver;
+
+namespace Library;
 public  class PoolDriver: Driver
 {
     public PoolDriver(string name, string surname, string id, Vehicle vehicle, int capacity, string bio): base(name, surname, id, vehicle, bio)
     {
-        this.Bio=bio;
-        this.Vehicle=vehicle;
         this.Capacity=capacity;
-        this.userStatus="Pool Driver";
     }
-
-    public override string userStatus { get; set; }
     private int capacity;
     public override int Capacity
     {
@@ -30,5 +23,4 @@ public  class PoolDriver: Driver
             }
         }
     }
-    public string Identifier {get; set;}
 }

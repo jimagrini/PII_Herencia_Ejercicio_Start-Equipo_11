@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections;
-using user;
-using driver;
-using vehicle;
-using passenger;
-using rate;
-using socialmedia;
+using Library;
 
-namespace PII_Herencia
+namespace Program
 {
     class Program
     {
@@ -15,14 +10,18 @@ namespace PII_Herencia
         {
             Vehicle driversCar = new Vehicle("Chevrolet","Onix","SBU 9331", 2020, "Gris");
 
-            User passenger = new Passenger("Christian","Almeida", "1234567");
+            User keke = new Passenger("Christian","Almeida", "1234567");
 
-            User driver = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 3,"Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
+            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 3,"Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
 
-            UcuRideShare rideShare = new UcuRideShare();
+            izquierdo.NewDriver();
 
-            rideShare.Add(driver);
-            rideShare.Add(passenger);
+            UcuRide.MyDriver(keke);
+
+            //UcuRideShare rideShare = new UcuRideShare();
+
+            //rideShare.Add(driver);
+            //rideShare.Add(passenger);
 
             /*
             Rate drivertopassenger = new Rate(passenger,4,"estudiante amable");

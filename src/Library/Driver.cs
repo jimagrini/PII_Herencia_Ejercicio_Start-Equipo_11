@@ -1,22 +1,23 @@
 using System;
 using System.Collections.Generic;
-using user;
-using vehicle;
-using rate;
-namespace driver;
-public  abstract class Driver: User
+
+namespace Library;
+public abstract class Driver : User
 {
-    public Driver(string name, string surname, string id, Vehicle vehicle , string bio): base(name, surname, id)
+    public Driver(string name, string surname, string id, Vehicle vehicle, string bio) : base(name, surname, id)
     {
-        this.userStatus="Driver";
-        this.Vehicle=vehicle;
-        this.Capacity=1;
-        this.Bio=bio;
+        this.Vehicle = vehicle;
+        this.Capacity = 1;
+        this.Bio = bio;
+        this.DriverStatus = "Not Available";
     }
 
-    public virtual int Capacity {get; set;}
+    public virtual int Capacity { get; set; }
+    public string DriverStatus { get; set; }
+    public UcuRide UcuRide { get; set; }
     private Vehicle vehicle;
-    public Vehicle Vehicle {get; set;}
+    public Vehicle Vehicle { get; set; }
+    public List<Driver> Drivers { get; set; }
 
     private string bio;
     public string Bio
@@ -27,11 +28,22 @@ public  abstract class Driver: User
         }
         set
         {
-            if(!String.IsNullOrEmpty(value))
+            if (!String.IsNullOrEmpty(value))
             {
-                this.bio=value;
+                this.bio = value;
             }
         }
     }
-
+    public void NewDriver()
+    {
+        Drivers.Add(this);
+    }
+    public void Available()
+    {
+        this.DriverStatus= "Available";
+    }
+    public void NotAvailable()
+    {
+        this.DriverStatus= "Not Available";
+    }
 }

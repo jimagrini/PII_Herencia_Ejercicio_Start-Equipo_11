@@ -1,5 +1,6 @@
 using System;
-namespace vehicle;
+
+namespace Library;
 public class Vehicle
 {
     public Vehicle(string brand, string model, string plate, int year, string color)
