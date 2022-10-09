@@ -12,13 +12,18 @@ namespace Program
 
             User keke = new Passenger("Christian","Almeida", "1234567");
 
-            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 3,"Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
+            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 2, "Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
 
             izquierdo.NewDriver();
             izquierdo.Available();
 
             UcuRide.MyDriver(keke);
-        
+
+            User ginella= new Passenger("Francisco","Ginella", "1234568");
+            UcuRide.MyDriver(ginella);
+
+            User carballo= new Passenger("Felipe","Carballo", "1234569");
+            UcuRide.MyDriver(carballo);
 
             //UcuRideShare rideShare = new UcuRideShare();
 

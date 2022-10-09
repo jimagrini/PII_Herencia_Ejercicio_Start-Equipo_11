@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace Library;
-public  class PoolDriver: Driver
+public class PoolDriver: Driver
 {
     public PoolDriver(string name, string surname, string id, Vehicle vehicle, int capacity, string bio): base(name, surname, id, vehicle, bio)
     {

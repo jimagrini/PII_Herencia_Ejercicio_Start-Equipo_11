@@ -7,9 +7,8 @@ public class UcuRide
     public UcuRide(Driver driver)
     {
         this.Passengers = new List<User>();
-        this.RideStatus = "A ride has now been created";
+        this.RideStatus = "Vacio";
         this.Driver = driver;
-        this.Driver.Capacity -= 1;
     }
     private Driver driver;
     public string RideStatus { get; set; }
@@ -25,39 +24,43 @@ public class UcuRide
     {
         foreach (Driver driver in Drivers)
         {
-            if (driver.Capacity >= 1 && driver.DriverStatus != "Not Available")
+            if (driver.Capacity>0 && driver.DriverStatus.Equals("Disponible"))
             {
-                if (driver.DriverStatus.Equals("Available"))
+                if (driver.UcuRide.RideStatus.Equals("Vacio"))
                 {
-                    UcuRide myRide = new UcuRide(driver);
-                    driver.UcuRide = myRide;
-                    myRide.Passengers.Add(passenger);
-                    Console.WriteLine(myRide.RideStatus);
+                    driver.UcuRide = new UcuRide(driver);
+                    driver.UcuRide.Passengers.Add(passenger);
+                    Console.WriteLine($"¡{driver.Name} {driver.Surname} ha creado un viaje con {passenger.Name} {passenger.Surname}!\nRating: {driver.Rating}\nAsientos disponibles: {driver.Capacity}\nVehiculo: {driver.Vehicle.Brand} {driver.Vehicle.Model}\nMatricula: {driver.Vehicle.Plate}\nColor: {driver.Vehicle.Color}\n");
+                    driver.Capacity -= 1;
+                    driver.UcuRide.RideStatus = "Viaje en curso";
                     break;
                 }
                 //   Tiene lugares disponibles pero ya se encuentra en un viaje creado 
                 else
                 {
                     driver.UcuRide.Passengers.Add(passenger);
+                    Console.WriteLine($"¡{passenger.Name} {passenger.Surname} se ha unido al viaje de {driver.Name} {driver.Surname}!");
+                    Console.WriteLine($"Rating: {driver.Rating}\nAsientos disponibles: {driver.Capacity}\nVehiculo: {driver.Vehicle.Brand} {driver.Vehicle.Model}\nMatricula: {driver.Vehicle.Plate}\nColor: {driver.Vehicle.Color}\n");
                     driver.Capacity -= 1;
                     break;
                 }
             }
-            else{Console.WriteLine("No hay conductores disponibles");}
+            else { Console.WriteLine("No hay conductores disponibles"); }
         }
     }
     public void RideFinished()
     {
-        this.RideStatus = "This ride has finished";
+        this.RideStatus = "Viaje finalizado";
         //Se intuye que ya el driver ya no estara disponible luego de haber llegado al destino
         this.Driver.NotAvailable();
     }
-    public void DriverRate (double driverRate, string driverDescription)
+
+    public void DriverRate(double driverRate, string driverDescription)
     {
-        Rate DriverRate= new Rate (this.Driver, driverRate, driverDescription);
+        Rate DriverRate = new Rate(this.Driver, driverRate, driverDescription);
     }
-    public void PassengerRate (Passenger passenger, double passengerRate, string passengerDescription)
+    public void PassengerRate(Passenger passenger, double passengerRate, string passengerDescription)
     {
-        Rate PassengerRate= new Rate (passenger, passengerRate, passengerDescription);
+        Rate PassengerRate = new Rate(passenger, passengerRate, passengerDescription);
     }
 }
