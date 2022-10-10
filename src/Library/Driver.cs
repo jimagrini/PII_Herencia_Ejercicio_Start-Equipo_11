@@ -4,13 +4,14 @@ using System.Collections.Generic;
 namespace Library;
 public class Driver : User
 {
-    public Driver(string name, string surname, string id, Vehicle vehicle, string bio) : base(name, surname, id)
+    public Driver(string name, string surname, string id, Vehicle vehicle, string bio, string photoPath) : base(name, surname, id, photoPath)
     {
         this.Vehicle = vehicle;
         this.Capacity = 1;
         this.Bio = bio;
         this.DriverStatus = "Disponible";
         this.UcuRide= new UcuRide(this);
+        TwitterPrinter.NewVolunteerDriver(this);
     }
 
     public virtual int Capacity { get; set; }

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 namespace Library;
 public class Passenger : User
 {
-    public Passenger(string name, string surname, string id): base(name, surname, id)
+    public Passenger(string name, string surname, string id, string photoPath): base(name, surname, id, photoPath)
     {
         this.Name=name;
         this.Surname=surname;
         this.Id=id;
+        TwitterPrinter.NewPassenger(this);
     }
     /*public static void MePassenger()
     {

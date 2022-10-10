@@ -4,20 +4,21 @@ using System.Collections.Generic;
 namespace Library;
 public abstract class User
 {
-    protected User(string name, string surname, string id)
+    protected User(string name, string surname, string id, string photoPath)
     {
-        this.Name = name;     
-        this.Surname= surname;
-        this.Id= id;
-        this.Rating=0;
-        this.Reviews= new List<Rate>();
+        this.Name = name;
+        this.Surname = surname;
+        this.Id = id;
+        this.Rating = 0;
+        this.Reviews = new List<Rate>();
+        this.PhotoPath = photoPath;
     }
-
-    public List<Rate> Reviews {get; set;}
+    public string PhotoPath{get;set;}
+    public List<Rate> Reviews { get; set; }
     private string name;
     private string surname;
     private string id;
-    public double Rating {get; set;}
+    public double Rating { get; set; }
     public string Name
     {
         get
@@ -26,9 +27,9 @@ public abstract class User
         }
         set
         {
-            if(!String.IsNullOrEmpty(value))
+            if (!String.IsNullOrEmpty(value))
             {
-                this.name=value;
+                this.name = value;
             }
         }
     }
@@ -41,9 +42,9 @@ public abstract class User
         }
         set
         {
-            if(!String.IsNullOrEmpty(value))
+            if (!String.IsNullOrEmpty(value))
             {
-                this.id=value;
+                this.id = value;
             }
         }
     }
@@ -55,9 +56,9 @@ public abstract class User
         }
         set
         {
-            if(!String.IsNullOrEmpty(value))
+            if (!String.IsNullOrEmpty(value))
             {
-                this.surname=value;
+                this.surname = value;
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Library;
+using TwitterUCU;
 
 namespace Program
 {
@@ -10,19 +11,19 @@ namespace Program
         {
             Vehicle driversCar = new Vehicle("Chevrolet","Onix","SBU 9331", 2020, "Gris");
 
-            User keke = new Passenger("Christian","Almeida", "1234567");
+            User keke = new Passenger("Christian","Almeida", "1234567",@"src\Library\ProfilePhoto\png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
 
-            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 2, "Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.");
+            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 2, "Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.",@"src\Library\ProfilePhoto\png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
 
             izquierdo.NewDriver();
             izquierdo.Available();
 
             UcuRide.MyDriver(keke);
 
-            User ginella= new Passenger("Francisco","Ginella", "1234568");
+            User ginella= new Passenger("Francisco","Ginella", "1234568","");
             UcuRide.MyDriver(ginella);
 
-            User carballo= new Passenger("Felipe","Carballo", "1234569");
+            User carballo= new Passenger("Felipe","Carballo", "1234569","");
             UcuRide.MyDriver(carballo);
 
             //UcuRideShare rideShare = new UcuRideShare();
