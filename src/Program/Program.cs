@@ -26,7 +26,7 @@ namespace Program
             User carballo= new Passenger("Felipe","Carballo", "1234569","estudiant.png");
             UcuRide.MyDriver(carballo);
 
-            Driver rochet= new Driver("Sergio", "Rochet", "87654321", new Vehicle("Toyota","Corola","SBU 9332", 2014, "Negro"), "Tengo muy buenos reflejos","png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
+            Driver rochet= new Driver("Sergio", "Rochet", "87654321", new Vehicle("Toyota","Corola","SBU 9332", 2014, "Negro"), "Tengo muy buenos reflejos","bill2.jpg");
             rochet.NewDriver();
             rochet.Available();
             UcuRide.MyDriver(carballo);
