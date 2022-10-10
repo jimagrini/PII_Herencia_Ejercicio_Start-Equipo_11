@@ -11,9 +11,9 @@ namespace Program
         {
             Vehicle driversCar = new Vehicle("Chevrolet","Onix","SBU 9331", 2020, "Gris");
 
-            User keke = new Passenger("Christian","Almeida", "1234567",@"src\Library\ProfilePhoto\png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
+            User keke = new Passenger("Christian","Almeida", "1234567",@"estudiant.png");
 
-            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 2, "Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.",@"src\Library\ProfilePhoto\png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
+            Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 2, "Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.","png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
 
             izquierdo.NewDriver();
             izquierdo.Available();
@@ -23,10 +23,10 @@ namespace Program
             User ginella= new Passenger("Francisco","Ginella", "1234568","");
             UcuRide.MyDriver(ginella);
 
-            User carballo= new Passenger("Felipe","Carballo", "1234569","");
+            User carballo= new Passenger("Felipe","Carballo", "1234569","estudiant.png");
             UcuRide.MyDriver(carballo);
 
-            Driver rochet= new Driver("Sergio", "Rochet", "87654321", new Vehicle("Toyota","Corola","SBU 9332", 2014, "Negro"), "Tengo muy buenos reflejos");
+            Driver rochet= new Driver("Sergio", "Rochet", "87654321", new Vehicle("Toyota","Corola","SBU 9332", 2014, "Negro"), "Tengo muy buenos reflejos","png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
             rochet.NewDriver();
             rochet.Available();
             UcuRide.MyDriver(carballo);
