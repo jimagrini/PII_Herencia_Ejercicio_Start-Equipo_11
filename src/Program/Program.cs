@@ -26,6 +26,11 @@ namespace Program
             User carballo= new Passenger("Felipe","Carballo", "1234569","");
             UcuRide.MyDriver(carballo);
 
+            Driver rochet= new Driver("Sergio", "Rochet", "87654321", new Vehicle("Toyota","Corola","SBU 9332", 2014, "Negro"), "Tengo muy buenos reflejos");
+            rochet.NewDriver();
+            rochet.Available();
+            UcuRide.MyDriver(carballo);
+
             //UcuRideShare rideShare = new UcuRideShare();
 
             //rideShare.Add(driver);

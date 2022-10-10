@@ -47,4 +47,16 @@ public class Driver : User
     {
         this.DriverStatus= "Ocupado";
     }
+
+    public void Full()
+    {
+        if (this.Capacity.Equals(0))
+        {
+            this.NotAvailable();
+        }
+    }
+    public void Trip()
+    {
+        this.UcuRide.RideStatus = "Viaje en curso";
+    }
 }

@@ -22,17 +22,21 @@ public class UcuRide
     /// <param name="passenger"></param>
     public static void MyDriver(User passenger)
     {
+        bool trip = false;
         foreach (Driver driver in Drivers)
         {
-            if (driver.Capacity>0 && driver.DriverStatus.Equals("Disponible"))
+            if (driver.Capacity > 0 && driver.DriverStatus.Equals("Disponible"))
             {
+
                 if (driver.UcuRide.RideStatus.Equals("Vacio"))
                 {
                     driver.UcuRide = new UcuRide(driver);
                     driver.UcuRide.Passengers.Add(passenger);
                     Console.WriteLine($"¡{driver.Name} {driver.Surname} ha creado un viaje con {passenger.Name} {passenger.Surname}!\nRating: {driver.Rating}\nAsientos disponibles: {driver.Capacity}\nVehiculo: {driver.Vehicle.Brand} {driver.Vehicle.Model}\nMatricula: {driver.Vehicle.Plate}\nColor: {driver.Vehicle.Color}\n");
                     driver.Capacity -= 1;
-                    driver.UcuRide.RideStatus = "Viaje en curso";
+                    driver.Full();
+                    driver.Trip();
+                    trip = true;
                     break;
                 }
                 //   Tiene lugares disponibles pero ya se encuentra en un viaje creado 
@@ -42,10 +46,16 @@ public class UcuRide
                     Console.WriteLine($"¡{passenger.Name} {passenger.Surname} se ha unido al viaje de {driver.Name} {driver.Surname}!");
                     Console.WriteLine($"Rating: {driver.Rating}\nAsientos disponibles: {driver.Capacity}\nVehiculo: {driver.Vehicle.Brand} {driver.Vehicle.Model}\nMatricula: {driver.Vehicle.Plate}\nColor: {driver.Vehicle.Color}\n");
                     driver.Capacity -= 1;
+                    driver.Full();
+                    driver.Trip();
+                    trip = true;
                     break;
                 }
             }
-            else { Console.WriteLine("No hay conductores disponibles"); }
+        }
+        if (!trip)
+        {
+            Console.WriteLine("Actualmente no hay conductores disponibles.\n");
         }
     }
     public void RideFinished()
