@@ -11,50 +11,43 @@ namespace Program
         {
             Vehicle driversCar = new Vehicle("Chevrolet","Onix","SBU 9331", 2020, "Gris");
 
-            User keke = new Passenger("Christian","Almeida", "1234567",@"estudiant.png");
+            Passenger keke = new Passenger("Christian","Almeida", "1234567",@"estudiant.png");
+            TwitterPrinter.NewPassenger(keke);
 
             Driver izquierdo = new PoolDriver("Juan","Izquierdo", "1234537", driversCar, 2, "Mi nombre es Juan Izquierdo, soy funcionario en la facultad, vivo en el barrio Prado.","png-clipart-car-cartoon-car-cartoon-character-compact-car.png");
-
             izquierdo.NewDriver();
+            TwitterPrinter.NewVolunteerDriver(izquierdo);
             izquierdo.Available();
 
             UcuRide.MyDriver(keke);
 
-            User ginella= new Passenger("Francisco","Ginella", "1234568","");
+            Passenger ginella= new Passenger("Francisco","Ginella", "1234568","");
+            TwitterPrinter.NewPassenger(ginella);
             UcuRide.MyDriver(ginella);
 
-            User carballo= new Passenger("Felipe","Carballo", "1234569","estudiant.png");
+            Passenger carballo= new Passenger("Felipe","Carballo", "1234569","estudiant.png");
+            TwitterPrinter.NewPassenger(carballo);
             UcuRide.MyDriver(carballo);
 
             Driver rochet= new Driver("Sergio", "Rochet", "87654321", new Vehicle("Toyota","Corola","SBU 9332", 2014, "Negro"), "Tengo muy buenos reflejos","bill2.jpg");
             rochet.NewDriver();
+            TwitterPrinter.NewVolunteerDriver(rochet);
             rochet.Available();
+
             UcuRide.MyDriver(carballo);
+            
+            Rate kekeRate = new Rate(keke,4,"macanudo e interesante");
+            Console.WriteLine($"La calificación de {keke.Name} {keke.Surname} es de {keke.Rating}.");
 
-            //UcuRideShare rideShare = new UcuRideShare();
+            Rate izquierdoRate = new Rate(izquierdo,4.2,"buen conductor");  
+            Console.WriteLine($"La calificación de {izquierdo.Name} {izquierdo.Surname} es de {izquierdo.Rating}.");
 
-            //rideShare.Add(driver);
-            //rideShare.Add(passenger);
+            
 
-            /*
-            Rate drivertopassenger = new Rate(passenger,4,"estudiante amable");
-
-            Rate passengerToDriver = new Rate(driver,5,"buen conductor");
-
-            Console.WriteLine(driver.Rating);
-            Console.WriteLine(passenger.Rating);
-
-            En éste método deberas mostrar un ejemplo de funcionamiento de tu programa an pseudocódigo. A continuación te 
+            /*En éste método deberas mostrar un ejemplo de funcionamiento de tu programa an pseudocódigo. A continuación te 
             planteamos un ejemplo de como hacerlo. Esto no significa que te limites a hacer solamente esto, debes pensar 
             en grande!
 
-            Usuario pasajero1 = nuevo Pasajero()
-            Usuario pasajero2 = nuevo Pasajero()
-            Usuario pasajero3 = nuevo Pasajero()
-            Usuario conductor1 = nuevo Conductor()
-            Usuario conductorPool1 = nuevo ConductorPool(maxPasajeros = 3)
-            UcuRideShare rideShare = nuevo UcuRideShare()
-            
             rideShare.Add(conductor1)
             Se publica en Twitter un nuevo conductor!
 
